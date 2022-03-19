@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<classpath>
+	<classpathentry kind="con" path="org.eclipse.jdt.launching.JRE_CONTAINER/org.eclipse.jdt.internal.debug.ui.launcher.StandardVMType/JavaSE-1.8"/>
+	<classpathentry kind="src" path="src"/>
+	<classpathentry kind="lib" path="C:/PlaceholderAPI-2.8.6.jar"/>
+	<classpathentry kind="lib" path="C:/NMS/18.jar"/>
+	<classpathentry kind="lib" path="C:/NMS/110.jar"/>
+	<classpathentry kind="lib" path="C:/NMS/111.jar"/>
+	<classpathentry kind="lib" path="C:/NMS/112.jar"/>
+	<classpathentry kind="lib" path="C:/NMS/183.jar"/>
+	<classpathentry kind="lib" path="C:/NMS/188.jar"/>
+	<classpathentry kind="lib" path="C:/NMS/192.jar"/>
+	<classpathentry kind="lib" path="C:/NMS/194.jar"/>
+	<classpathentry kind="lib" path="C:/NMS/spigot-1.12.2.jar"/>
+	<classpathentry kind="lib" path="C:/1.13/113.jar"/>
+	<classpathentry kind="lib" path="C:/spigot-1.13.1.jar"/>
+	<classpathentry kind="output" path="bin"/>
+</classpath>

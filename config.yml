@@ -1,0 +1,24 @@
+MYSQL:
+  Enable: false
+  host: 'localhost'
+  port: '3306'
+  database: 'LobbyPresents'
+  table_name: 'Test'
+  username: 'root'
+  password: '123'
+disappear_on_claim: false
+Effect:
+  canclaim: VILLAGER_HAPPY
+  claimed: CRIT
+Messages:
+  found: "&aYou found a present! &e(&b%found%&e/&b%max%&e)"
+  alreadyfound: "&cFound this gift already"
+  completed: "&bMerry Christmas!! %status%"
+  actionbar: "&b&lLobby Presents &f%status%"
+  actionbar-completed: "&b&lLobby Presents &a&lCompleted!&f %status%"
+Actionbar: false
+Sounds: {}
+Max: {}
+Rewards: {}
+loc: {}
+data: {}

@@ -1,0 +1,9 @@
+name: LobbyPresents
+main: com.poompk.LobbyPresents.LobbyPresents
+version: 3.2
+softdepend: [PlaceholderAPI]
+author: poompk
+commands:
+    lobbypresents:
+        aliases: [lobbypresent, lps]
+        description: help menu!
