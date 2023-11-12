@@ -13,7 +13,7 @@ public class SomeExpansion extends PlaceholderExpansion {
     
     @Override
     public String getIdentifier() {
-        return "lobbypresent";
+        return "lobbypresents";
     }
 
     @Override
