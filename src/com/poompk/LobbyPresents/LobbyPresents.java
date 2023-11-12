@@ -186,7 +186,7 @@ public class LobbyPresents extends JavaPlugin implements Listener{
 		username = getConfig().getString("MYSQL.username");
 		password = getConfig().getString("MYSQL.password");
 		tb_name = getConfig().getString("MYSQL.table_name");
-		url = "jdbc:mysql://" + host + ":" + port + "/" + database+"?useSSL=false";
+		url = "jdbc:mysql://" + host + ":" + port + "/" + database+"?useSSL=false&serverTimezone=UTC&characterEncoding=UTF-8";
 	    if (!isconnect()) {
 	        try {
 	          con = DriverManager.getConnection(url, username, password);
@@ -204,7 +204,7 @@ public class LobbyPresents extends JavaPlugin implements Listener{
 	          }
 	          
 	        } catch (SQLException e){
-	          //e.printStackTrace();
+	          e.printStackTrace();
 	          color("&aLobbyPresents: &cDatabase connection failed!");
 	          color("&aLobbyPresents: &cPlease check! host port databasename username password in &eConfig.yml! &cand restart your server");
 	          Bukkit.getPluginManager().disablePlugin(this);
