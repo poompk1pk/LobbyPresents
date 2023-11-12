@@ -44,6 +44,7 @@ import com.mojang.authlib.properties.Property;
 import com.poompk.LobbyPresents.Presents.Presents;
 import com.poompk.LobbyPresents.Presents.Heads;
 import com.poompk.LobbyPresents.Presents.v1_8_R3;
+import com.poompk.LobbyPresents.Type.ConfigType;
 
 public class LobbyPresents extends JavaPlugin implements Listener{
 	private Presents presents;
@@ -613,6 +614,9 @@ public class LobbyPresents extends JavaPlugin implements Listener{
 			return s.replace("%player%", p.getDisplayName());
 		}
 		public void PlayEffect(){
+			 if(!((ConfigFile)PresentsUtils.config.get(ConfigType.Default)).getConfig().getBoolean("enable")) {
+				 return;
+			 }
 			int max = getConfig().getInt("Max");
 			if(getConfig().getBoolean("Actionbar") == true) {
 			 for(Player p : Bukkit.getOnlinePlayers()){

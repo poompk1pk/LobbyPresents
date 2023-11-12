@@ -163,6 +163,9 @@ public class PresentsUtils {
       return; 
     actionbars.scheduleSyncRepeatingTask((Plugin)Main.getInstance(), new Runnable() {
           public void run() {
+        	  if(((ConfigFile)PresentsUtils.config.get(ConfigType.Default)).getConfig().getBoolean("enable")) {
+        		  return;
+        	  }
             for (Player pls : Bukkit.getOnlinePlayers()) {
               if (PresentsUtils.world_actionbar.contains(pls.getWorld().getName().toLowerCase()))
                 Main.presents.sendtitlebar(pls, PresentsUtils.getTextStatusActionBar(pls)); 
@@ -297,11 +300,19 @@ public class PresentsUtils {
     Heads.clear();
     loadConfig();
     Main.presents.conSoundDefault();
-    loadSoundandEffect();
-    loadPresents();
-    loadHeads();
-    loadRewards();
-    loadActionbars();
+    
+    PresentsUtils.loadRewards();
+    if(((ConfigFile)PresentsUtils.config.get(ConfigType.Default)).getConfig().getBoolean("enable")) {
+        
+        
+  	  PresentsUtils.loadPresents();
+        
+  	  
+        if(((ConfigFile)PresentsUtils.config.get(ConfigType.Default)).getConfig().getBoolean("enable")) {
+      	  PresentsUtils.loadActionbars();
+        }
+    }
+    
     chat(sender, "&bReloaded!");
   }
   

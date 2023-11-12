@@ -200,6 +200,22 @@ public class Commands implements CommandExecutor {
             return false;
           } 
           PresentsUtils.clearUserData(sender, p2);
+        } else if (args[0].equalsIgnoreCase("save")) {
+        	((ConfigFile)PresentsUtils.config.get(ConfigType.Default)).save();
+        	((ConfigFile)PresentsUtils.config.get(ConfigType.Heads)).save();
+        	((ConfigFile)PresentsUtils.config.get(ConfigType.Presents)).save();
+        	p.sendMessage("saved! config");
+        } else if (args[0].equalsIgnoreCase("enable")) {
+        	((ConfigFile)PresentsUtils.config.get(ConfigType.Default)).getConfig().set("enable", true);
+        	((ConfigFile)PresentsUtils.config.get(ConfigType.Default)).save();
+        	PresentsUtils.reload(sender);
+        	p.sendMessage("enable!");
+        } else if (args[0].equalsIgnoreCase("disable")) {
+        	((ConfigFile)PresentsUtils.config.get(ConfigType.Default)).getConfig().set("enable", false);
+        	((ConfigFile)PresentsUtils.config.get(ConfigType.Default)).save();
+        	PresentsUtils.reload(sender);
+        	p.sendMessage("disable!");
+        	
         } else if (args[0].equalsIgnoreCase("reload")) {
           PresentsUtils.reload(sender);
         } else if (args[0].equalsIgnoreCase("heads")) {
@@ -228,6 +244,8 @@ public class Commands implements CommandExecutor {
   public static void help_msg(CommandSender p, int page) {
     ArrayList<String> help = new ArrayList<>();
     help.add(" &a/lps &7help &c{page}");
+    help.add(" &a/lps &7enable/disable");
+    help.add(" &a/lps &7save");
     help.add(" &a/lps &7list");
     help.add(" &a/lps &7tp &c{id}");
     help.add(" &a/lps &7set &c{id}");

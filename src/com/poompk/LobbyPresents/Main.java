@@ -20,9 +20,11 @@ import org.bukkit.inventory.meta.ItemMeta;
 import org.bukkit.inventory.meta.SkullMeta;
 import org.bukkit.plugin.Plugin;
 import org.bukkit.plugin.java.JavaPlugin;
+import org.bukkit.scheduler.BukkitRunnable;
 
 import com.mojang.authlib.GameProfile;
 import com.mojang.authlib.properties.Property;
+import com.poompk.LobbyPresents.Type.ConfigType;
 import com.poompk.LobbyPresents.Type.Presents;
 import com.poompk.LobbyPresents.Type.v1_8_R3;
 
@@ -75,13 +77,26 @@ public class Main extends JavaPlugin {
           getDescription().getVersion());
       PresentsUtils.loadConfig();
       presents.conSoundDefault();
+      
       PresentsUtils.loadSoundandEffect();
-      PresentsUtils.loadPresents();
+      
       loadData();
       PresentsUtils.onEnableloadProfile();
       PresentsUtils.loadHeads();
+      
+      
       PresentsUtils.loadRewards();
-      PresentsUtils.loadActionbars();
+      if(((ConfigFile)PresentsUtils.config.get(ConfigType.Default)).getConfig().getBoolean("enable")) {
+          
+          
+    	  PresentsUtils.loadPresents();
+          
+    	  
+          if(((ConfigFile)PresentsUtils.config.get(ConfigType.Default)).getConfig().getBoolean("enable")) {
+        	  PresentsUtils.loadActionbars();
+          }
+      }
+      
       Bukkit.getPluginManager().registerEvents(new Setup(), (Plugin)this);
       Bukkit.getPluginManager().registerEvents(new ClickPresentListener(), (Plugin)this);
       PresentsUtils.CheckVersionSystem((CommandSender)Bukkit.getConsoleSender());
@@ -93,6 +108,14 @@ public class Main extends JavaPlugin {
         PresentsUtils.chat((CommandSender)Bukkit.getConsoleSender(), " &bHooked &7placeholderAPI");
       } 
     } 
+    new BukkitRunnable() {
+		
+		@Override
+		public void run() {
+			PresentsUtils.reload(Bukkit.getConsoleSender());
+			
+		}
+	}.runTaskLater(this, 20);
   }
   
   public void onDisable() {}
