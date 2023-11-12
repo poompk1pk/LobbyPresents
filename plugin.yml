@@ -1,6 +1,6 @@
 name: LobbyPresents
-main: com.poompk.LobbyPresents.LobbyPresents
-version: 3.2
+main: com.poompk.LobbyPresents.Main
+version: 4.4
 softdepend: [PlaceholderAPI]
 author: poompk
 commands:

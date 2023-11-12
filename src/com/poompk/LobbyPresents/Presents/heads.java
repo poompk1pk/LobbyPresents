@@ -5,7 +5,7 @@ import org.bukkit.inventory.ItemStack;
 import com.poompk.LobbyPresents.LobbyPresents;
 
 
-public enum heads {
+public enum Heads {
     present_1("eyJ0ZXh0dXJlcyI6eyJTS0lOIjp7InVybCI6Imh0dHA6Ly90ZXh0dXJlcy5taW5lY3JhZnQubmV0L3RleHR1cmUvZTgxYTM5OWU0ZDJlOGYxYTgyOGUxYzRiYzRjYTk5ZWZlZDE1MDhmM2Y0MjFkOTg4NzQ3MjlhZTY0ZDgzIn19fQ==","1"),
     present_2("eyJ0ZXh0dXJlcyI6eyJTS0lOIjp7InVybCI6Imh0dHA6Ly90ZXh0dXJlcy5taW5lY3JhZnQubmV0L3RleHR1cmUvODg0YjhhMzJiYzZkZTI4ODRiYTMxMzk4ZDViMDI4ZDFhNGZhNzdmNTlhNDE1YjdlNmY2MmYyNjIzZjRmNiJ9fX0=","2"),
 	present_3("eyJ0ZXh0dXJlcyI6eyJTS0lOIjp7InVybCI6Imh0dHA6Ly90ZXh0dXJlcy5taW5lY3JhZnQubmV0L3RleHR1cmUvYWZmYjlmM2FhMWQxYmU5NmNhY2U3OTU3NGU3MmZiMzFiNjQ2Y2I2YTJkMTkxMDFlYTEyN2Y5MjBlZmUwOTkifX19","3"),
@@ -94,7 +94,7 @@ public enum heads {
     private ItemStack item;
     private String idTag;
     
-    private heads(String texture, String id)
+    private Heads(String texture, String id)
     {
         item = LobbyPresents.createSkull(texture, id);
         idTag = id;

@@ -3,22 +3,27 @@ MYSQL:
   host: 'localhost'
   port: '3306'
   database: 'LobbyPresents'
-  table_name: 'Test'
+  table_name: 'presents'
   username: 'root'
   password: '123'
-disappear_on_claim: false
 Effect:
+  distance: 5
+  ticks: 40
+  amount_canclaim: 8
+  amount_claimed: 3
   canclaim: VILLAGER_HAPPY
   claimed: CRIT
 Messages:
-  found: "&aYou found a present! &e(&b%found%&e/&b%max%&e)"
-  alreadyfound: "&cFound this gift already"
-  completed: "&bMerry Christmas!! %status%"
-  actionbar: "&b&lLobby Presents &f%status%"
-  actionbar-completed: "&b&lLobby Presents &a&lCompleted!&f %status%"
-Actionbar: false
+  found: "&aYou found a present! &e(&b%found%&e/&b%total%&e)"
+  alreadyfound: "&cFound already!"
+  completed: "&bMerry Christmas!! &c(&a%found%&f/&a%total%&c)"
+  actionbar: "&b&lLobby Presents &c(&a%found%&f/&a%total%&c)"
+  actionbar-completed: "&b&lLobby Presents &a&lCompleted!&f &c(&a%found%&f/&a%total%&c)"
+Actionbar:
+  enable: false
+  world: {}
+  update: 10
 Sounds: {}
-Max: {}
-Rewards: {}
-loc: {}
-data: {}
+Rewards:
+  type: sequence
+  sequence-rewards: {}

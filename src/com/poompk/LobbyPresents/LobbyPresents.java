@@ -1,9 +1,6 @@
 package com.poompk.LobbyPresents;
 
-import java.io.BufferedReader;
-import java.io.InputStreamReader;
 import java.lang.reflect.Field;
-import java.net.URL;
 import java.sql.Connection;
 import java.sql.DriverManager;
 import java.sql.PreparedStatement;
@@ -45,16 +42,8 @@ import org.bukkit.scheduler.BukkitRunnable;
 import com.mojang.authlib.GameProfile;
 import com.mojang.authlib.properties.Property;
 import com.poompk.LobbyPresents.Presents.Presents;
-import com.poompk.LobbyPresents.Presents.heads;
-import com.poompk.LobbyPresents.Presents.v1_10_R1;
-import com.poompk.LobbyPresents.Presents.v1_11_R1;
-import com.poompk.LobbyPresents.Presents.v1_12_R1;
-import com.poompk.LobbyPresents.Presents.v1_13_R1;
-import com.poompk.LobbyPresents.Presents.v1_8_R1;
-import com.poompk.LobbyPresents.Presents.v1_8_R2;
+import com.poompk.LobbyPresents.Presents.Heads;
 import com.poompk.LobbyPresents.Presents.v1_8_R3;
-import com.poompk.LobbyPresents.Presents.v1_9_R1;
-import com.poompk.LobbyPresents.Presents.v1_9_R2;
 
 public class LobbyPresents extends JavaPlugin implements Listener{
 	private Presents presents;
@@ -75,7 +64,7 @@ public class LobbyPresents extends JavaPlugin implements Listener{
     public HashMap<Location,Integer> local = new HashMap<Location,Integer>();
     public HashMap<Integer,Location> localinvert = new HashMap<Integer,Location>();
     public static HashMap<String,String> ClaimString = new HashMap<String,String>();
-    @SuppressWarnings("deprecation")
+   // @SuppressWarnings("deprecation")
 	@Override
     public void onEnable() {
     	Server server = Bukkit.getServer();
@@ -93,23 +82,11 @@ public class LobbyPresents extends JavaPlugin implements Listener{
                     return;
                 }
             if (version.equals("v1_8_R1")) {
-            	Bukkit.getPluginManager().registerEvents(new listener_18(), this);
+            	Bukkit.getPluginManager().registerEvents(new Listener_18(), this);
             } else if (version.equals("v1_8_R2")) {
-            	Bukkit.getPluginManager().registerEvents(new listener_18(), this);
+            	Bukkit.getPluginManager().registerEvents(new Listener_18(), this);
             } else if (version.equals("v1_8_R3")) {
-            	Bukkit.getPluginManager().registerEvents(new listener_18(), this);
-            } else if (version.equals("v1_9_R1")) {
-            	Bukkit.getPluginManager().registerEvents(new listener_19(), this);
-            } else if (version.equals("v1_9_R2")) {
-            	Bukkit.getPluginManager().registerEvents(new listener_19(), this);
-            } else if (version.equals("v1_10_R1")) {
-            	Bukkit.getPluginManager().registerEvents(new listener_19(), this);
-            } else if (version.equals("v1_11_R1")) {
-            	Bukkit.getPluginManager().registerEvents(new listener_19(), this);
-            } else if (version.equals("v1_12_R1")) {
-            	Bukkit.getPluginManager().registerEvents(new listener_19(), this);
-            } else if (version.equals("v1_13_R1")) {
-            	Bukkit.getPluginManager().registerEvents(new listener_19(), this);
+            	Bukkit.getPluginManager().registerEvents(new Listener_18(), this);
             }
 			instance = this;
             console.sendMessage(ChatColor.translateAlternateColorCodes('&', "&8[&fLobby&aPresents&8] &7Enabled! &eBy PoomPK"));
@@ -117,7 +94,8 @@ public class LobbyPresents extends JavaPlugin implements Listener{
             loadData();
     		loadLocation();
     		if (server.getPluginManager().isPluginEnabled("PlaceholderAPI") == true) {
-    			new PlaceholderAPI(this).hook();
+    			new SomeExpansion().register();
+    		//	new PlaceholderAPI(this).hook();
     			console.sendMessage(ChatColor.GRAY+" Hooked PlaceHolderAPI");
     			PlaceholderAPI = true;
     		}
@@ -142,24 +120,8 @@ public class LobbyPresents extends JavaPlugin implements Listener{
         } catch (ArrayIndexOutOfBoundsException Exception) {
             return false;
         }
-        if (version.equals("v1_8_R1")) {
-        	presents = new v1_8_R1();
-        } else if (version.equals("v1_8_R2")) {
-        	presents = new v1_8_R2();
-        } else if (version.equals("v1_8_R3")) {
+        if (version.equals("v1_8_R3")) {
         	presents = new v1_8_R3();
-        } else if (version.equals("v1_9_R1")) {
-        	presents = new v1_9_R1();
-        } else if (version.equals("v1_9_R2")) {
-        	presents = new v1_9_R2();
-        } else if (version.equals("v1_10_R1")) {
-        	presents = new v1_10_R1();
-        } else if (version.equals("v1_11_R1")) {
-        	presents = new v1_11_R1();
-        } else if (version.equals("v1_12_R1")) {
-        	presents = new v1_12_R1();
-        } else if (version.equals("v1_13_R1")) {
-        	presents = new v1_13_R1();
         }
         return presents != null;
     }
@@ -628,7 +590,7 @@ public class LobbyPresents extends JavaPlugin implements Listener{
 				return 0;
 			}
 		}
-		public static int getFound(Player p) {
+		public static int getFound(OfflinePlayer p) {
 			 if(LobbyPresents.getInstance().getClaimed(p.getUniqueId()).equals("#") || LobbyPresents.getInstance().getClaimed(p.getUniqueId()).equals("")) {
 				 return 0;
 			} else {
@@ -636,7 +598,7 @@ public class LobbyPresents extends JavaPlugin implements Listener{
 				 return total;
 			}
 		}
-		public static int getNotFound(Player p) {
+		public static int getNotFound(OfflinePlayer p) {
 			 if(LobbyPresents.getInstance().getClaimed(p.getUniqueId()).equals("#") || LobbyPresents.getInstance().getClaimed(p.getUniqueId()).equals("")) {
 				 return getMax();
 			} else {
@@ -739,7 +701,7 @@ public class LobbyPresents extends JavaPlugin implements Listener{
 	    }
 
     public static ItemStack getHead(String name){
-        for (heads head : heads.values()){
+        for (Heads head : Heads.values()){
             if (head.getName().equalsIgnoreCase(name))
             {
                 return head.getItemStack();

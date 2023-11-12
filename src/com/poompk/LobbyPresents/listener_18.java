@@ -11,7 +11,7 @@ import org.bukkit.event.Listener;
 import org.bukkit.event.block.Action;
 import org.bukkit.event.player.PlayerInteractEvent;
 
-public class listener_18 implements Listener{
+public class Listener_18 implements Listener{
 	@SuppressWarnings({ "deprecation" })
 	@EventHandler
 	public void ClickPresents(PlayerInteractEvent e){
