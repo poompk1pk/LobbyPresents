@@ -3,7 +3,7 @@
 
 # Project Overview
 
-I initially created this project in 2017 and, for various reasons, haven't been able to update it further. Nevertheless, I welcome you to utilize it for corrections, improvements, or as a helpful guideline.
+I initially created this project in the long past and, for various reasons, haven't been able to update it further. Nevertheless, I welcome you to utilize it for corrections, improvements, or as a helpful guideline.
 
 ## Important Notes
 
