@@ -185,105 +185,117 @@ public class Main extends JavaPlugin {
 	      isMysql = true;
 	      PresentsUtils.chat((CommandSender)Bukkit.getConsoleSender(), "&a Loaded: mysql");
 	      url = "jdbc:mysql://" + host + ":" + port + "/" + database + "?useSSL=false&serverTimezone=UTC&characterEncoding=UTF-8";
-	      if (!isconnect())
-	        try {
-	          con = DriverManager.getConnection(url, username, password);
-	          String sql = "CREATE TABLE IF NOT EXISTS " + tb_name + "(id INTEGER PRIMARY KEY AUTO_INCREMENT, uuid VARCHAR(50), claimed VARCHAR(250));";
+	      if (!isconnect()) {
 	          try {
-	            PreparedStatement stmt = con.prepareStatement(sql);
-	            stmt.executeUpdate();
-	            stmt.close();
-	            for (Player pls : Bukkit.getOnlinePlayers())
-	              InsertDataDefault(pls.getUniqueId()); 
+	              con = DriverManager.getConnection(url, username, password);
+	              String sql = "CREATE TABLE IF NOT EXISTS " + tb_name + "(id INTEGER PRIMARY KEY AUTO_INCREMENT, uuid VARCHAR(50), claimed VARCHAR(250));";
+	              try (PreparedStatement stmt = con.prepareStatement(sql)) {
+	                  stmt.executeUpdate();
+	                  for (Player pls : Bukkit.getOnlinePlayers()) {
+	                      InsertDataDefault(pls.getUniqueId());
+	                  }
+	              } catch (SQLException e) {
+	                  e.printStackTrace();
+	              }
 	          } catch (SQLException e) {
-	            e.printStackTrace();
-	          } 
-	        } catch (SQLException e) {
-	          color("&aLobbyPresents: &cDatabase connection failed!");
-	          color("&aLobbyPresents: &cPlease check! host port databasename username password in &eConfig.yml! &cand restart your server");
-	          Bukkit.getPluginManager().disablePlugin((Plugin)this);
-	        }  
-	    } 
+	              e.printStackTrace();
+	              color("&aLobbyPresents: &cDatabase connection failed!");
+	              color("&aLobbyPresents: &cPlease check! host port databasename username password in &eConfig.yml! &cand restart your server");
+	              Bukkit.getPluginManager().disablePlugin((Plugin) this);
+	          }
+	      }
+	    }
 	  }
 	  
 	  public void InsertDataDefault(UUID uuid) {
-	    String sql = "SELECT * FROM " + tb_name + " WHERE uuid = '" + uuid + "'";
-	    PreparedStatement stmt = null;
-	    ResultSet results = null;
-	    try {
-	      stmt = con.prepareStatement(sql);
-	      results = stmt.executeQuery();
-	      if (!results.next()) {
-	        String insert = "INSERT INTO " + tb_name + "(uuid, claimed) VALUES ('" + uuid + "', '');";
-	        PreparedStatement instmt = con.prepareStatement(insert);
-	        instmt.executeUpdate();
-	      } 
-	    } catch (SQLException e) {
-	      e.printStackTrace();
-	    } finally {
-	      try {
-	        if (stmt != null)
-	          stmt.close(); 
-	        if (results != null)
-	          results.close(); 
-	      } catch (SQLException e) {
-	        e.printStackTrace();
-	      } 
-	    } 
-	  }
+		    String sqlSelect = "SELECT * FROM " + tb_name + " WHERE uuid = ?";
+		    String sqlInsert = "INSERT INTO " + tb_name + "(uuid, claimed) VALUES (?, '')";
+
+		    try (PreparedStatement stmtSelect = con.prepareStatement(sqlSelect)) {
+		        stmtSelect.setString(1, uuid.toString());
+		        try (ResultSet results = stmtSelect.executeQuery()) {
+		            if (!results.next()) {
+		                try (PreparedStatement stmtInsert = con.prepareStatement(sqlInsert)) {
+		                    stmtInsert.setString(1, uuid.toString());
+		                    stmtInsert.executeUpdate();
+		                }
+		            }
+		        }
+		    } catch (SQLException e) {
+		        e.printStackTrace();
+		    }
+		}
 	  
 	  public static void Update(String qry) {
-	    Statement stmt = null;
-	    try {
-	      stmt = con.createStatement();
-	      stmt.executeUpdate(qry);
-	    } catch (Exception ex) {
-	      openCon();
-	    } finally {
-	      try {
-	        stmt.close();
-	      } catch (SQLException e) {
-	        e.printStackTrace();
-	      } 
-	    } 
-	  }
+		    Statement stmt = null;
+		    try {
+		        stmt = con.createStatement();
+		        stmt.executeUpdate(qry);
+		    } catch (SQLException ex) {
+		        handleSQLException(ex);
+		        openCon(); // Attempt to reconnect
+		    } finally {
+		        try {
+		            if (stmt != null) {
+		                stmt.close();
+		            }
+		        } catch (SQLException e) {
+		            e.printStackTrace();
+		        }
+		    }
+		}
+
+		public static ResultSet Query(String qry) {
+		    ResultSet rs = null;
+		    try {
+		        Statement stmt = con.createStatement();
+		        rs = stmt.executeQuery(qry);
+		    } catch (SQLException ex) {
+		        handleSQLException(ex);
+		        openCon(); // Attempt to reconnect
+		    }
+		    return rs;
+		}
+
+		private static void handleSQLException(SQLException ex) {
+		    ex.printStackTrace();
+		}
+
 	  
 	  public static String getClaimedDB(UUID uuid) {
-	    String Claimed = "";
-	    ResultSet rs = null;
-	    try {
-	      rs = Query("SELECT `claimed` FROM `" + tb_name + "` WHERE `uuid`='" + uuid + "'");
-	      while (rs.next())
-	        Claimed = rs.getString(1); 
-	    } catch (Exception e1) {
-	      e1.printStackTrace();
-	    } finally {
-	      try {
-	        rs.close();
-	      } catch (SQLException e) {
-	        e.printStackTrace();
-	      } 
-	    } 
-	    return Claimed;
-	  }
+		    String Claimed = "";
+		    ResultSet rs = null;
+		    try {
+		        rs = Query("SELECT `claimed` FROM `" + tb_name + "` WHERE `uuid`='" + uuid + "'");
+		        while (rs.next())
+		            Claimed = rs.getString(1);
+		    } catch (Exception e1) {
+		        e1.printStackTrace();
+		    } finally {
+		        try {
+		            if (rs != null) {
+		                rs.close();
+		            }
+		        } catch (SQLException e) {
+		            e.printStackTrace();
+		        }
+		    }
+		    return Claimed;
+		}
+
 	  
-	  public static ResultSet Query(String qry) {
-	    ResultSet rs = null;
-	    try {
-	      Statement stmt = con.createStatement();
-	      rs = stmt.executeQuery(qry);
-	    } catch (Exception ex) {
-	      openCon();
-	    } 
-	    return rs;
-	  }
+		/*
+		 * public static ResultSet Query(String qry) { ResultSet rs = null; try {
+		 * Statement stmt = con.createStatement(); rs = stmt.executeQuery(qry); } catch
+		 * (Exception ex) { openCon(); } return rs; }
+		 */
 	  
 	  public static Connection openCon() {
 	    try {
 	      Class.forName("com.mysql.jdbc.Driver");
 	    } catch (ClassNotFoundException classNotFoundException) {}
 	    try {
-	      Connection conn = DriverManager.getConnection("jdbc:mysql://" + host + ":" + port + "/" + database, username, password);
+	      Connection conn = DriverManager.getConnection(url, username, password);
 	      return conn;
 	    } catch (SQLException sQLException) {
 	      return null;
