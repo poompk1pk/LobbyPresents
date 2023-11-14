@@ -1,5 +1,5 @@
 # LobbyPresents
-# I change code to standalone on 1.8.8
+# This Code is only 1.8.8, not same as on spigot but this is the latest version
 
 # Project Overview
 
