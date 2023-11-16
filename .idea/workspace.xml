@@ -4,35 +4,7 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="34dfab2f-9776-43cb-a711-df7ef3480bfc" name="Changes" comment="reconnection">
-      <change beforePath="$PROJECT_DIR$/.classpath" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.gitignore" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.project" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.settings/org.eclipse.core.resources.prefs" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.settings/org.eclipse.jdt.core.prefs" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/README.MD" beforeDir="false" afterPath="$PROJECT_DIR$/README.MD" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/config.yml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/heads.yml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/plugin.yml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/com/poompk/LobbyPresents/CallBack.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/com/poompk/LobbyPresents/ClickPresentListener.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/com/poompk/LobbyPresents/Commands.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/com/poompk/LobbyPresents/ConfigFile.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/com/poompk/LobbyPresents/Main.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/com/poompk/LobbyPresents/PlaceholderAPI.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/com/poompk/LobbyPresents/Presents/EventAPI/PlayerClickClaimedPresentEvent.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/com/poompk/LobbyPresents/Presents/Heads.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/com/poompk/LobbyPresents/Presents/Presents_18.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/com/poompk/LobbyPresents/Presents/v1_8_R3.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/com/poompk/LobbyPresents/PresentsUtils.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/com/poompk/LobbyPresents/Profile.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/com/poompk/LobbyPresents/Setup.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/com/poompk/LobbyPresents/SomeExpansion.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/com/poompk/LobbyPresents/Type/ConfigType.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/com/poompk/LobbyPresents/Type/Presents.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/com/poompk/LobbyPresents/Type/v1_8_R3.java" beforeDir="false" />
-    </list>
+    <list default="true" id="34dfab2f-9776-43cb-a711-df7ef3480bfc" name="Changes" comment="4.5" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -151,7 +123,14 @@
       <option name="project" value="LOCAL" />
       <updated>1700093542057</updated>
     </task>
-    <option name="localTasksCounter" value="8" />
+    <task id="LOCAL-00008" summary="4.5">
+      <created>1700109048380</created>
+      <option name="number" value="00008" />
+      <option name="presentableId" value="LOCAL-00008" />
+      <option name="project" value="LOCAL" />
+      <updated>1700109048380</updated>
+    </task>
+    <option name="localTasksCounter" value="9" />
     <servers />
   </component>
   <component name="VcsManagerConfiguration">
@@ -161,6 +140,7 @@
     <MESSAGE value="del all" />
     <MESSAGE value="cut to 1.8.8 only" />
     <MESSAGE value="reconnection" />
-    <option name="LAST_COMMIT_MESSAGE" value="reconnection" />
+    <MESSAGE value="4.5" />
+    <option name="LAST_COMMIT_MESSAGE" value="4.5" />
   </component>
 </project>
