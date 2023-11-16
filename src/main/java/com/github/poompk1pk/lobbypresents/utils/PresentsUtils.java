@@ -311,14 +311,26 @@ public class PresentsUtils {
     } 
     return sound;
   }
-  
   public static void clearUserData(CommandSender sender, Player p2) {
     if (p2 == null) {
       chat(sender, "&cPlayer is not online!");
       return;
-    } 
+    }
     getProfile(p2.getUniqueId()).clearClaim();
     chat(sender, "&cClearUserData successfully!");
+  }
+  public static void clearAllData(CommandSender sender) {
+    if(Main.isMysql) {
+      Main.getInstance().clearTable(Main.getInstance().getTb_name());
+      for (Player pls : Bukkit.getOnlinePlayers()) {
+        Main.getInstance().InsertDataDefault(pls.getUniqueId());
+      }
+    } else {
+      ((ConfigFile)PresentsUtils.config.get(ConfigType.PlayerData)).getConfig().set("user",null);
+      ((ConfigFile)PresentsUtils.config.get(ConfigType.PlayerData)).save();
+    }
+    profile.clear();
+    chat(sender, "&cClear All Data successfully!");
   }
   
   public static void reload(CommandSender sender) {

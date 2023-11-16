@@ -70,7 +70,7 @@ public class Main extends JavaPlugin {
   private static HikariDataSource dataSource;
   
   private static String tb_name;
-  public static String getTb_name() {
+  public String getTb_name() {
 	  return tb_name;
 }
 
@@ -325,7 +325,17 @@ public class Main extends JavaPlugin {
 		return Claimed;
 	}
 
+	public void clearTable(String tableName) {
+		try (Connection connection = dataSource.getConnection()) {
+			String deleteQuery = "DELETE FROM " + tableName;
 
+			try (PreparedStatement preparedStatement = connection.prepareStatement(deleteQuery)) {
+				preparedStatement.executeUpdate();
+			}
+		} catch (SQLException e) {
+			e.printStackTrace();
+		}
+	}
 	/*
 		 * public static ResultSet Query(String qry) { ResultSet rs = null; try {
 		 * Statement stmt = con.createStatement(); rs = stmt.executeQuery(qry); } catch

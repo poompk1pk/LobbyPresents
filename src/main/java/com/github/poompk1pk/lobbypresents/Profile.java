@@ -54,6 +54,11 @@ public class Profile {
 
     Set<Integer> ids = new HashSet<>();
     String claimData = Main.isMysql ? Main.getClaimedDB(uuid) : getConfig().getConfig().getString("user." + getUUID());
+    if(claimData == null) {
+      // Put the result in the cache
+      claimCache.put(uuid, ids);
+      return ids;
+    }
     if(claimData.equals("[]")) {
       claimData = "";
     }
@@ -73,8 +78,9 @@ public class Profile {
   private void updateClaim(Set<Integer> ids) {
     String claimString = String.join(",", ids.toString()).replace("[", "").replace("]", "").replace(" ", "");
     if (Main.isMysql) {
-      Main.Update("UPDATE `" + Main.getTb_name() + "` SET `claimed`='" + claimString + "' WHERE `uuid`='" + uuid + "'");
+      Main.Update("UPDATE `" + Main.getInstance().getTb_name() + "` SET `claimed`='" + claimString + "' WHERE `uuid`='" + uuid + "'");
     } else {
+
       getConfig().getConfig().set("user." + getUUID(), claimString);
       getConfig().save();
     }
@@ -82,4 +88,5 @@ public class Profile {
     // Remove the entry from the cache when data is updated
     claimCache.invalidate(uuid);
   }
+
 }
