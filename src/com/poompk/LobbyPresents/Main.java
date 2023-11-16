@@ -184,7 +184,7 @@ public class Main extends JavaPlugin {
 	      tb_name = getConfig().getString("MYSQL.table_name");
 	      isMysql = true;
 	      PresentsUtils.chat((CommandSender)Bukkit.getConsoleSender(), "&a Loaded: mysql");
-	      url = "jdbc:mysql://" + host + ":" + port + "/" + database + "?useSSL=false&serverTimezone=UTC&characterEncoding=UTF-8";
+	      url = "jdbc:mysql://" + host + ":" + port + "/" + database + "?useSSL=false&serverTimezone=UTC&characterEncoding=UTF-8&autoreconnect=true";
 	      if (!isconnect()) {
 	          try {
 	              con = DriverManager.getConnection(url, username, password);
