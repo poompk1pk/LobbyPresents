@@ -32,7 +32,7 @@ import org.bukkit.scheduler.BukkitRunnable;
 import com.mojang.authlib.GameProfile;
 import com.mojang.authlib.properties.Property;
 import  com.github.poompk1pk.lobbypresents.type.ConfigType;
-import  com.github.poompk1pk.lobbypresents.type.Presents;
+import com.github.poompk1pk.lobbypresents.versions.Presents;
 import com.github.poompk1pk.lobbypresents.versions.v188.presents.v1_8_R3;
 
 public class Main extends JavaPlugin {

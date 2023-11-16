@@ -1,7 +1,7 @@
 package com.github.poompk1pk.lobbypresents.versions.v188.presents;
 
 import com.github.poompk1pk.lobbypresents.type.ConfigType;
-import com.github.poompk1pk.lobbypresents.type.Presents;
+import com.github.poompk1pk.lobbypresents.versions.Presents;
 import org.bukkit.Location;
 import org.bukkit.Sound;
 import org.bukkit.block.Block;

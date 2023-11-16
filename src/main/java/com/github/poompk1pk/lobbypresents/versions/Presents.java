@@ -1,4 +1,4 @@
-package  com.github.poompk1pk.lobbypresents.type;
+package com.github.poompk1pk.lobbypresents.versions;
 
 import org.bukkit.Location;
 import org.bukkit.block.Block;
