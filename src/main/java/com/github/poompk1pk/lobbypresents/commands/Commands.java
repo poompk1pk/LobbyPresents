@@ -199,13 +199,26 @@ public class Commands implements CommandExecutor {
           if (args.length == 1) {
             PresentsUtils.chat(sender, "&c/lps clearuserdatta {PLAYERNAME}");
             return false;
-          } 
+          }
           Player p2 = Bukkit.getPlayer(args[1]);
           if (p2 == null) {
             PresentsUtils.chat(sender, "&cPlayer is not online");
             return false;
-          } 
+          }
           PresentsUtils.clearUserData(sender, p2);
+        } else if (args[0].equalsIgnoreCase("clearalldata")) {
+          if (args.length == 1) {
+            PresentsUtils.chat(sender, "&c/lps clearalldata confirm");
+            return false;
+          }
+          if(args[1].equalsIgnoreCase("confirm")) {
+
+          } else {
+            PresentsUtils.chat(sender, "&c/lps clearalldata confirm");
+            return false;
+          }
+
+          PresentsUtils.clearAllData(sender);
         } else if (args[0].equalsIgnoreCase("actionbar")) {
           if(args.length == 1) {
             PresentsUtils.chat(sender, "&c/lps actionbar addworld");
@@ -297,6 +310,7 @@ public class Commands implements CommandExecutor {
     help.add(" &a/lps &7reward setcustom &c{id_presents} &c{none/cmd1, cmd2, ...}");
     help.add(" &a/lps &7heads");
     help.add(" &a/lps &7clearuserdata &c{playername}");
+    help.add(" &a/lps &7clearalldata &cconfirm");
     help.add(" &a/lps &7save");
     help.add(" &a/lps &7actionbar addworld/removeworld");
     help.add(" &a/lps &7actionbar enable/disable");
