@@ -1,0 +1,9 @@
+name: LobbyPresents
+version: '${project.version}'
+main: com.github.poompk1pk.lobbypresents.Main
+softdepend: [PlaceholderAPI]
+author: poompk
+commands:
+  lobbypresents:
+    aliases: [lobbypresent, lps]
+    description: help menu!

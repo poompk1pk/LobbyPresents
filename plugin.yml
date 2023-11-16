@@ -1,9 +1,0 @@
-name: LobbyPresents
-main: com.poompk.LobbyPresents.Main
-version: 4.4
-softdepend: [PlaceholderAPI]
-author: poompk
-commands:
-    lobbypresents:
-        aliases: [lobbypresent, lps]
-        description: help menu!

@@ -10,6 +10,9 @@ I initially created this project in the long past and, for various reasons, have
 - The source code may exhibit unconventional naming conventions for classes and variables, reflecting a beginner's approach at the time of creation.
 - You might find code in unexpected or peculiar sections due to the necessity of decompiling it when some files were missing.
 
+## For Mysql
+- Mysql 8+
+
 ## Contributions and Fixes
 
 Feel free to contribute to the project by fixing and improving any aspects that need attention. Your support in enhancing the code and documentation is highly appreciated!

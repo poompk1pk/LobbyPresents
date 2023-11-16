@@ -4,7 +4,35 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="34dfab2f-9776-43cb-a711-df7ef3480bfc" name="Changes" comment="del all" />
+    <list default="true" id="34dfab2f-9776-43cb-a711-df7ef3480bfc" name="Changes" comment="reconnection">
+      <change beforePath="$PROJECT_DIR$/.classpath" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.gitignore" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.project" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.settings/org.eclipse.core.resources.prefs" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.settings/org.eclipse.jdt.core.prefs" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/README.MD" beforeDir="false" afterPath="$PROJECT_DIR$/README.MD" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/config.yml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/heads.yml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/plugin.yml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/com/poompk/LobbyPresents/CallBack.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/com/poompk/LobbyPresents/ClickPresentListener.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/com/poompk/LobbyPresents/Commands.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/com/poompk/LobbyPresents/ConfigFile.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/com/poompk/LobbyPresents/Main.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/com/poompk/LobbyPresents/PlaceholderAPI.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/com/poompk/LobbyPresents/Presents/EventAPI/PlayerClickClaimedPresentEvent.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/com/poompk/LobbyPresents/Presents/Heads.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/com/poompk/LobbyPresents/Presents/Presents_18.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/com/poompk/LobbyPresents/Presents/v1_8_R3.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/com/poompk/LobbyPresents/PresentsUtils.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/com/poompk/LobbyPresents/Profile.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/com/poompk/LobbyPresents/Setup.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/com/poompk/LobbyPresents/SomeExpansion.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/com/poompk/LobbyPresents/Type/ConfigType.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/com/poompk/LobbyPresents/Type/Presents.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/com/poompk/LobbyPresents/Type/v1_8_R3.java" beforeDir="false" />
+    </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -12,7 +40,6 @@
   </component>
   <component name="Git.Settings">
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
-    <option name="UPDATE_TYPE" value="REBASE" />
   </component>
   <component name="MarkdownSettingsMigration">
     <option name="stateVersion" value="1" />
@@ -22,13 +49,50 @@
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent">{
-  &quot;keyToString&quot;: {
-    &quot;RunOnceActivity.OpenProjectViewOnStart&quot;: &quot;true&quot;,
-    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
-    &quot;ignore.virus.scanning.warn.message&quot;: &quot;true&quot;
+  <component name="PropertiesComponent"><![CDATA[{
+  "keyToString": {
+    "RunOnceActivity.OpenProjectViewOnStart": "true",
+    "RunOnceActivity.ShowReadmeOnStart": "true",
+    "ignore.virus.scanning.warn.message": "true",
+    "jdk.selected.com.intellij.ui.dsl.builder.impl.RowImpl.sdk": "corretto-1.8",
+    "last_opened_file_path": "E:/lonzgame/intelij/LobbyPresents",
+    "project.structure.last.edited": "Modules",
+    "project.structure.proportion": "0.15",
+    "project.structure.side.proportion": "0.0"
+  },
+  "keyToStringList": {
+    "jdk.preference.com.intellij.ui.dsl.builder.impl.RowImpl.sdk": [
+      "8=C:\\Users\\PC\\.jdks\\corretto-1.8.0_352"
+    ]
   }
-}</component>
+}]]></component>
+  <component name="RunManager">
+    <configuration name="LobbyPresents package" type="MavenRunConfiguration" factoryName="Maven">
+      <MavenSettings>
+        <option name="myGeneralSettings" />
+        <option name="myRunnerSettings" />
+        <option name="myRunnerParameters">
+          <MavenRunnerParameters>
+            <option name="profiles">
+              <set />
+            </option>
+            <option name="goals">
+              <list>
+                <option value="package" />
+              </list>
+            </option>
+            <option name="pomFileName" />
+            <option name="profilesMap">
+              <map />
+            </option>
+            <option name="resolveToWorkspace" value="false" />
+            <option name="workingDirPath" value="$PROJECT_DIR$" />
+          </MavenRunnerParameters>
+        </option>
+      </MavenSettings>
+      <method v="2" />
+    </configuration>
+  </component>
   <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
   <component name="TaskManager">
     <task active="true" id="Default" summary="Default task">
@@ -66,7 +130,28 @@
       <option name="project" value="LOCAL" />
       <updated>1699826512766</updated>
     </task>
-    <option name="localTasksCounter" value="5" />
+    <task id="LOCAL-00005" summary="cut to 1.8.8 only">
+      <created>1699828968995</created>
+      <option name="number" value="00005" />
+      <option name="presentableId" value="LOCAL-00005" />
+      <option name="project" value="LOCAL" />
+      <updated>1699828968995</updated>
+    </task>
+    <task id="LOCAL-00006" summary="cut to 1.8.8 only">
+      <created>1699951848787</created>
+      <option name="number" value="00006" />
+      <option name="presentableId" value="LOCAL-00006" />
+      <option name="project" value="LOCAL" />
+      <updated>1699951848787</updated>
+    </task>
+    <task id="LOCAL-00007" summary="reconnection">
+      <created>1700093542057</created>
+      <option name="number" value="00007" />
+      <option name="presentableId" value="LOCAL-00007" />
+      <option name="project" value="LOCAL" />
+      <updated>1700093542057</updated>
+    </task>
+    <option name="localTasksCounter" value="8" />
     <servers />
   </component>
   <component name="VcsManagerConfiguration">
@@ -74,6 +159,8 @@
     <MESSAGE value="Fix Wrong Placeholder Identifier" />
     <MESSAGE value="add disable/enable commands" />
     <MESSAGE value="del all" />
-    <option name="LAST_COMMIT_MESSAGE" value="del all" />
+    <MESSAGE value="cut to 1.8.8 only" />
+    <MESSAGE value="reconnection" />
+    <option name="LAST_COMMIT_MESSAGE" value="reconnection" />
   </component>
 </project>
