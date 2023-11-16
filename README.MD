@@ -29,9 +29,9 @@ public void onPlayerClickPresents(PlayerClickClaimedPresentEvent e) {
         e.getLocation();
 }
 
-public void test() {
+public void test(UUID uuid) {
         // getset user data
-        PresentsUtils.getProfile()
+        PresentsUtils.getProfile(uuid);
 }
 
 ```
