@@ -17,6 +17,26 @@ I initially created this project in the long past and, for various reasons, have
 
 Feel free to contribute to the project by fixing and improving any aspects that need attention. Your support in enhancing the code and documentation is highly appreciated!
 
+## Commands
+1. `/lps help {page}`
+2. `/lps enable/disable`
+3. `/lps list`
+4. `/lps tp {id}`
+5. `/lps set {id}`
+6. `/lps remove {id}`
+7. `/lps reward settype {sequence/custom/both}`
+8. `/lps reward setsequence {1-total} {none/cmd1, cmd2, ...}`
+9. `/lps reward setcustom {id_presents} {none/cmd1, cmd2, ...}`
+10. `/lps heads`
+11. `/lps clearuserdata {playername}`
+12. `/lps clearalldata confirm`
+13. `/lps save`
+14. `/lps actionbar addworld/removeworld`
+15. `/lps actionbar enable/disable`
+16. `/lps reload`
+17. `/lps checkversion`
+
+
 ## Developer
 ### Events
 ```java
