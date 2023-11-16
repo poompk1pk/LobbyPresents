@@ -84,6 +84,7 @@ public class Main extends JavaPlugin {
           getDescription().getVersion());
       PresentsUtils.loadConfig();
       presents.conSoundDefault();
+
       
       PresentsUtils.loadSoundandEffect();
       
