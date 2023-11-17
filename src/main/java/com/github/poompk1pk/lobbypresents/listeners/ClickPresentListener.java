@@ -15,6 +15,7 @@ public class ClickPresentListener implements Listener {
   @EventHandler
   public void onPlayerClickPresents(PlayerClickClaimedPresentEvent e) {
 
+    // async task prevents server freeze
     new BukkitRunnable() {
       @Override
       public void run() {
@@ -32,6 +33,7 @@ public class ClickPresentListener implements Listener {
             String s = arrayOfString1[b];
             if (s.equalsIgnoreCase("none"))
               break;
+            // commands still need sync task
             new BukkitRunnable() {
               @Override
               public void run() {
@@ -49,6 +51,7 @@ public class ClickPresentListener implements Listener {
             String s = arrayOfString1[b];
             if (s.equalsIgnoreCase("none"))
               break;
+            // commands still need sync task
             new BukkitRunnable() {
               @Override
               public void run() {
@@ -67,6 +70,7 @@ public class ClickPresentListener implements Listener {
             String s = arrayOfString1[b];
             if (s.equalsIgnoreCase("none"))
               break;
+            // commands still need sync task
             new BukkitRunnable() {
               @Override
               public void run() {
@@ -79,6 +83,7 @@ public class ClickPresentListener implements Listener {
             String s = arrayOfString1[b];
             if (s.equalsIgnoreCase("none"))
               break;
+            // commands still need sync task
             new BukkitRunnable() {
               @Override
               public void run() {

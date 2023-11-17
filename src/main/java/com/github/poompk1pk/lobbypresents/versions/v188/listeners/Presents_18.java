@@ -87,6 +87,7 @@ public class Presents_18 implements Listener {
 	      return; 
 	    if (!e.getClickedBlock().equals(getLocationPresents().getBlock()))
 	      return;
+		// async task prevents server freeze
 		new BukkitRunnable() {
 			@Override
 			public void run() {
@@ -98,6 +99,7 @@ public class Presents_18 implements Listener {
 				}
 				Main.getPresents().FoundSound(e.getPlayer(), 1.0F);
 				PresentsUtils.getProfile(e.getPlayer().getUniqueId()).addClaim(getId());
+				// commands still need sync task
 				new BukkitRunnable() {
 					@Override
 					public void run() {

@@ -22,6 +22,10 @@ import net.minecraft.server.v1_8_R3.PacketPlayOutChat;
 import net.minecraft.server.v1_8_R3.PacketPlayOutWorldParticles;
 import net.minecraft.server.v1_8_R3.WorldServer;
 
+/**
+ * can someone convert this to protocollib?
+ * it can reduce nms class to use protocollib for another version
+ */
 public class v1_8_R3 implements Presents {
 	@Override
 	public void sendtitlebar(Player p, String msg) {
