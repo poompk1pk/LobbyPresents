@@ -4,13 +4,20 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="34dfab2f-9776-43cb-a711-df7ef3480bfc" name="Changes" comment="4.5" />
+    <list default="true" id="34dfab2f-9776-43cb-a711-df7ef3480bfc" name="Changes" comment="info">
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+    </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
     <option name="LAST_RESOLUTION" value="IGNORE" />
   </component>
   <component name="Git.Settings">
+    <option name="RECENT_BRANCH_BY_REPOSITORY">
+      <map>
+        <entry key="$PROJECT_DIR$" value="master" />
+      </map>
+    </option>
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
   </component>
   <component name="MarkdownSettingsMigration">
@@ -21,23 +28,23 @@
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent"><![CDATA[{
-  "keyToString": {
-    "RunOnceActivity.OpenProjectViewOnStart": "true",
-    "RunOnceActivity.ShowReadmeOnStart": "true",
-    "ignore.virus.scanning.warn.message": "true",
-    "jdk.selected.com.intellij.ui.dsl.builder.impl.RowImpl.sdk": "corretto-1.8",
-    "last_opened_file_path": "E:/lonzgame/intelij/LobbyPresents",
-    "project.structure.last.edited": "Modules",
-    "project.structure.proportion": "0.15",
-    "project.structure.side.proportion": "0.0"
+  <component name="PropertiesComponent">{
+  &quot;keyToString&quot;: {
+    &quot;RunOnceActivity.OpenProjectViewOnStart&quot;: &quot;true&quot;,
+    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
+    &quot;ignore.virus.scanning.warn.message&quot;: &quot;true&quot;,
+    &quot;jdk.selected.com.intellij.ui.dsl.builder.impl.RowImpl.sdk&quot;: &quot;corretto-1.8&quot;,
+    &quot;last_opened_file_path&quot;: &quot;E:/lonzgame/intelij/LobbyPresents&quot;,
+    &quot;project.structure.last.edited&quot;: &quot;Modules&quot;,
+    &quot;project.structure.proportion&quot;: &quot;0.15&quot;,
+    &quot;project.structure.side.proportion&quot;: &quot;0.0&quot;
   },
-  "keyToStringList": {
-    "jdk.preference.com.intellij.ui.dsl.builder.impl.RowImpl.sdk": [
-      "8=C:\\Users\\PC\\.jdks\\corretto-1.8.0_352"
+  &quot;keyToStringList&quot;: {
+    &quot;jdk.preference.com.intellij.ui.dsl.builder.impl.RowImpl.sdk&quot;: [
+      &quot;8=C:\\Users\\PC\\.jdks\\corretto-1.8.0_352&quot;
     ]
   }
-}]]></component>
+}</component>
   <component name="RunManager">
     <configuration name="LobbyPresents package" type="MavenRunConfiguration" factoryName="Maven">
       <MavenSettings>
@@ -130,7 +137,70 @@
       <option name="project" value="LOCAL" />
       <updated>1700109048380</updated>
     </task>
-    <option name="localTasksCounter" value="9" />
+    <task id="LOCAL-00009" summary="4.5">
+      <created>1700109140442</created>
+      <option name="number" value="00009" />
+      <option name="presentableId" value="LOCAL-00009" />
+      <option name="project" value="LOCAL" />
+      <updated>1700109140442</updated>
+    </task>
+    <task id="LOCAL-00010" summary="delete unnecessary class">
+      <created>1700110113657</created>
+      <option name="number" value="00010" />
+      <option name="presentableId" value="LOCAL-00010" />
+      <option name="project" value="LOCAL" />
+      <updated>1700110113657</updated>
+    </task>
+    <task id="LOCAL-00011" summary="move class">
+      <created>1700110648776</created>
+      <option name="number" value="00011" />
+      <option name="presentableId" value="LOCAL-00011" />
+      <option name="project" value="LOCAL" />
+      <updated>1700110648776</updated>
+    </task>
+    <task id="LOCAL-00012" summary="+api information">
+      <created>1700111376182</created>
+      <option name="number" value="00012" />
+      <option name="presentableId" value="LOCAL-00012" />
+      <option name="project" value="LOCAL" />
+      <updated>1700111376182</updated>
+    </task>
+    <task id="LOCAL-00013" summary="+api information">
+      <created>1700111462232</created>
+      <option name="number" value="00013" />
+      <option name="presentableId" value="LOCAL-00013" />
+      <option name="project" value="LOCAL" />
+      <updated>1700111462232</updated>
+    </task>
+    <task id="LOCAL-00014" summary="clear all data commands">
+      <created>1700121020147</created>
+      <option name="number" value="00014" />
+      <option name="presentableId" value="LOCAL-00014" />
+      <option name="project" value="LOCAL" />
+      <updated>1700121020147</updated>
+    </task>
+    <task id="LOCAL-00015" summary="fix missing bugs">
+      <created>1700121075112</created>
+      <option name="number" value="00015" />
+      <option name="presentableId" value="LOCAL-00015" />
+      <option name="project" value="LOCAL" />
+      <updated>1700121075112</updated>
+    </task>
+    <task id="LOCAL-00016" summary="commands info">
+      <created>1700121371520</created>
+      <option name="number" value="00016" />
+      <option name="presentableId" value="LOCAL-00016" />
+      <option name="project" value="LOCAL" />
+      <updated>1700121371520</updated>
+    </task>
+    <task id="LOCAL-00017" summary="info">
+      <created>1700181398894</created>
+      <option name="number" value="00017" />
+      <option name="presentableId" value="LOCAL-00017" />
+      <option name="project" value="LOCAL" />
+      <updated>1700181398894</updated>
+    </task>
+    <option name="localTasksCounter" value="18" />
     <servers />
   </component>
   <component name="VcsManagerConfiguration">
@@ -141,6 +211,13 @@
     <MESSAGE value="cut to 1.8.8 only" />
     <MESSAGE value="reconnection" />
     <MESSAGE value="4.5" />
-    <option name="LAST_COMMIT_MESSAGE" value="4.5" />
+    <MESSAGE value="delete unnecessary class" />
+    <MESSAGE value="move class" />
+    <MESSAGE value="+api information" />
+    <MESSAGE value="clear all data commands" />
+    <MESSAGE value="fix missing bugs" />
+    <MESSAGE value="commands info" />
+    <MESSAGE value="info" />
+    <option name="LAST_COMMIT_MESSAGE" value="info" />
   </component>
 </project>
