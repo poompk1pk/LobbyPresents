@@ -40,14 +40,12 @@ public class Setup implements Listener {
   
   @EventHandler
   public void onPlayerJoinGame(AsyncPlayerPreLoginEvent e) {
-    if (Main.isMysql) {
-      try {
-        Main.getInstance().InsertDataDefault(e.getUniqueId());
-        PresentsUtils.onJoinloadProfile(e.getUniqueId());
-      } catch (Exception exception) {exception.printStackTrace();}
-    } else {
-      PresentsUtils.onJoinloadProfile(e.getUniqueId());
-    } 
+    try {
+      Main.getInstance().getLobbyPresentsDataManager().insertDefaultData(e.getUniqueId());
+    } catch (Exception e1) {
+      e1.printStackTrace();
+    }
+
   }
   
   @EventHandler

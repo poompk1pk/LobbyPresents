@@ -21,37 +21,43 @@ import org.bukkit.scheduler.BukkitRunnable;
 import org.bukkit.scheduler.BukkitScheduler;
 
 public class Presents_18 implements Listener {
-	  private Location loc;
+	  private final Location loc;
 	  
-	  private BukkitScheduler scheduler = Bukkit.getServer().getScheduler();
+	  private final BukkitScheduler scheduler = Bukkit.getServer().getScheduler();
 	  
-	  private int id;
+	  private final int id;
 	  
 	  public Presents_18(String[] loc, int id) {
 	    this.loc = new Location(Bukkit.getWorld(loc[0]), Integer.parseInt(loc[1]), Integer.parseInt(loc[2]), Integer.parseInt(loc[3]));
 	    this.id = id;
 	    runEffect();
-	    Bukkit.getPluginManager().registerEvents(this, (Plugin)Main.getInstance());
+	    Bukkit.getPluginManager().registerEvents(this, Main.getInstance());
 	  }
 	  
 	  public void unRegisterListener() {
 	    HandlerList.unregisterAll(this);
-	    this.scheduler.cancelTasks((Plugin)Main.getInstance());
+	    this.scheduler.cancelTasks(Main.getInstance());
 	  }
 	  
 	  public void runEffect() {
-	    this.scheduler.runTaskTimerAsynchronously((Plugin)Main.getInstance(), new Runnable() {
+	    this.scheduler.runTaskTimerAsynchronously(Main.getInstance(), new Runnable() {
 	          public void run() {
-	            for (Player pls : Bukkit.getOnlinePlayers()) {
-	              if (pls.getWorld() == Presents_18.this.getLocationPresents().getWorld() && pls != null && 
-	                pls.getLocation().distance(Presents_18.this.getLocationPresents()) <= PresentsUtils.distance) {
-	                if (PresentsUtils.getProfile(pls.getUniqueId()).getClaim().contains(Integer.valueOf(Presents_18.this.getId()))) {
-	                  Main.getPresents().HitEffect(pls, Presents_18.this.getLocationPresents().getBlock(), PresentsUtils.eeffect_claimed);
-	                  continue;
-	                } 
-	                Main.getPresents().GreenVillager(pls, Presents_18.this.getLocationPresents().getBlock(), PresentsUtils.effect_canclaim);
-	              } 
-	            } 
+				  try {
+					  for (Player pls : Bukkit.getOnlinePlayers()) {
+						  if (pls.getWorld() == Presents_18.this.getLocationPresents().getWorld() && pls != null &&
+								  pls.getLocation().distance(Presents_18.this.getLocationPresents()) <= PresentsUtils.distance) {
+							  if (PresentsUtils.getProfile(pls.getUniqueId()).getClaim().contains(Integer.valueOf(Presents_18.this.getId()))) {
+								  Main.getPresents().HitEffect(pls, Presents_18.this.getLocationPresents().getBlock(), PresentsUtils.eeffect_claimed);
+								  continue;
+							  }
+							  Main.getPresents().GreenVillager(pls, Presents_18.this.getLocationPresents().getBlock(), PresentsUtils.effect_canclaim);
+						  }
+					  }
+
+				  } catch (NullPointerException e) {
+
+				  }
+
 	          }
 	        },0L, PresentsUtils.ticksEffect);
 	  }
@@ -69,18 +75,19 @@ public class Presents_18 implements Listener {
 	  }
 	  
 	  public String getCustomRewards() {
-	    if (((ConfigFile)PresentsUtils.config.get(ConfigType.Presents)).getConfig().getString("presents." + getId() + ".custom-rewards") == null || ((ConfigFile)PresentsUtils.config.get(ConfigType.Presents)).getConfig().getString("presents." + getId() + ".custom-rewards").equalsIgnoreCase("none"))
+	    if (PresentsUtils.config.get(ConfigType.Presents).getConfig().getString("presents." + getId() + ".custom-rewards") == null || PresentsUtils.config.get(ConfigType.Presents).getConfig().getString("presents." + getId() + ".custom-rewards").equalsIgnoreCase("none"))
 	      return "none"; 
-	    return ((ConfigFile)PresentsUtils.config.get(ConfigType.Presents)).getConfig().getString("presents." + getId() + ".custom-rewards");
+	    return PresentsUtils.config.get(ConfigType.Presents).getConfig().getString("presents." + getId() + ".custom-rewards");
 	  }
 	  
 	  public void setCustomRewards(String s) {
-	    ((ConfigFile)PresentsUtils.config.get(ConfigType.Presents)).getConfig().set("presents." + getId() + ".custom-rewards", s);
-	    ((ConfigFile)PresentsUtils.config.get(ConfigType.Presents)).save();
+	    PresentsUtils.config.get(ConfigType.Presents).getConfig().set("presents." + getId() + ".custom-rewards", s);
+	    PresentsUtils.config.get(ConfigType.Presents).save();
 	  }
 	  
 	  @EventHandler
 	  public void onPlayerInteractPresentBoxes(PlayerInteractEvent e) {
+
 	    if (e.getAction() != Action.RIGHT_CLICK_BLOCK || !e.getClickedBlock().getWorld().equals(getLocationPresents().getWorld()))
 	      return; 
 	    if (e.getClickedBlock().getType() != Material.valueOf("SKULL"))
@@ -92,9 +99,15 @@ public class Presents_18 implements Listener {
 			@Override
 			public void run() {
 				if (PresentsUtils.getProfile(e.getPlayer().getUniqueId()).getClaim().contains(Integer.valueOf(getId()))) {
-					e.getPlayer().playSound(getLocationPresents(), PresentsUtils.Sound_alreadyfound, 1.0F, 1.0F);
+
+					try {
+						e.getPlayer().playSound(getLocationPresents(), PresentsUtils.Sound_alreadyfound, 1.0F, 1.0F);
+					} catch (NullPointerException e) {
+						Main.getInstance().getLogger().warning("Not found sound: "+PresentsUtils.Sound_alreadyfound+" "+Main.getInstance().getVersion());
+					}
+
 					if (!PresentsUtils.Message_alreadyfound.equalsIgnoreCase("none"))
-						PresentsUtils.chat((CommandSender)e.getPlayer(), Main.getMessage(e.getPlayer(), PresentsUtils.Message_alreadyfound.replace("%unfound%", Main.getUnfound(e.getPlayer())+"").replace("%player%", e.getPlayer().getDisplayName()).replace("%found%", (new StringBuilder(String.valueOf(PresentsUtils.getProfile(e.getPlayer().getUniqueId()).getClaim().size()))).toString()).replace("%total%", (new StringBuilder(String.valueOf(PresentsUtils.total_present))).toString())));
+						PresentsUtils.chat(e.getPlayer(), Main.getMessage(e.getPlayer(), PresentsUtils.Message_alreadyfound.replace("%unfound%", String.valueOf(Main.getUnfound(e.getPlayer()))).replace("%player%", e.getPlayer().getDisplayName()).replace("%found%", String.valueOf(PresentsUtils.getProfile(e.getPlayer().getUniqueId()).getClaim().size())).replace("%total%", String.valueOf(PresentsUtils.total_present))));
 					return;
 				}
 				Main.getPresents().FoundSound(e.getPlayer(), 1.0F);
@@ -103,7 +116,7 @@ public class Presents_18 implements Listener {
 				new BukkitRunnable() {
 					@Override
 					public void run() {
-						Bukkit.getServer().getPluginManager().callEvent((Event)new PlayerClickClaimedPresentEvent(e.getPlayer(), getId(), getLocationPresents()));
+						Bukkit.getServer().getPluginManager().callEvent(new PlayerClickClaimedPresentEvent(e.getPlayer(), getId(), getLocationPresents()));
 					}
 				}.runTask(Main.getInstance());
 

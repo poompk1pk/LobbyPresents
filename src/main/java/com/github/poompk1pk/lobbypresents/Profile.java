@@ -20,6 +20,9 @@ public class Profile {
   private static final Cache<UUID, Set<Integer>> claimCache = CacheBuilder.newBuilder()
           .expireAfterWrite(5, TimeUnit.SECONDS)
           .build();
+  public static void clearCached() {
+    claimCache.cleanUp();
+  }
 
   public Profile(UUID uuid) {
     this.uuid = uuid;
@@ -53,7 +56,7 @@ public class Profile {
     }
 
     Set<Integer> ids = new HashSet<>();
-    String claimData = Main.isMysql ? Main.getClaimedDB(uuid) : getConfig().getConfig().getString("user." + getUUID());
+    String claimData = Main.getInstance().getLobbyPresentsDataManager().getClaimed(uuid);
     if(claimData == null) {
       // Put the result in the cache
       claimCache.put(uuid, ids);
@@ -76,14 +79,10 @@ public class Profile {
   }
 
   private void updateClaim(Set<Integer> ids) {
-    String claimString = String.join(",", ids.toString()).replace("[", "").replace("]", "").replace(" ", "");
-    if (Main.isMysql) {
-      Main.Update("UPDATE `" + Main.getInstance().getTb_name() + "` SET `claimed`='" + claimString + "' WHERE `uuid`='" + uuid + "'");
-    } else {
 
-      getConfig().getConfig().set("user." + getUUID(), claimString);
-      getConfig().save();
-    }
+    String claimString = String.join(",", ids.toString()).replace("[", "").replace("]", "").replace(" ", "");
+
+    Main.getInstance().getLobbyPresentsDataManager().updateClaim(uuid,claimString);
 
     // Remove the entry from the cache when data is updated
     claimCache.invalidate(uuid);

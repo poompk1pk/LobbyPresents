@@ -320,15 +320,8 @@ public class PresentsUtils {
     chat(sender, "&cClearUserData successfully!");
   }
   public static void clearAllData(CommandSender sender) {
-    if(Main.isMysql) {
-      Main.getInstance().clearTable(Main.getInstance().getTb_name());
-      for (Player pls : Bukkit.getOnlinePlayers()) {
-        Main.getInstance().InsertDataDefault(pls.getUniqueId());
-      }
-    } else {
-      ((ConfigFile)PresentsUtils.config.get(ConfigType.PlayerData)).getConfig().set("user",null);
-      ((ConfigFile)PresentsUtils.config.get(ConfigType.PlayerData)).save();
-    }
+    Main.getInstance().getLobbyPresentsDataManager().clearAllData(sender);
+    Profile.clearCached();
     profile.clear();
     chat(sender, "&cClear All Data successfully!");
   }
@@ -437,4 +430,6 @@ public class PresentsUtils {
       } 
     } catch (Exception exception) {}
   }
+
+
 }
