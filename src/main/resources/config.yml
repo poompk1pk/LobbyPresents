@@ -1,6 +1,7 @@
 enable: true
+# file, mysql
+DatabaseType: file
 MYSQL:
-  Enable: false
   host: 'localhost'
   port: '3306'
   database: 'LobbyPresents'
@@ -16,7 +17,7 @@ Effect:
   claimed: CRIT
 Messages:
   found: "&aYou found a present! &e(&b%found%&e/&b%total%&e)"
-  alreadyfound: "&cFound already!"
+  alreadyfound: "&cAlready found!"
   completed: "&bMerry Christmas!! &c(&a%found%&f/&a%total%&c)"
   actionbar: "&b&lLobby Presents &c(&a%found%&f/&a%total%&c)"
   actionbar-completed: "&b&lLobby Presents &a&lCompleted!&f &c(&a%found%&f/&a%total%&c)"

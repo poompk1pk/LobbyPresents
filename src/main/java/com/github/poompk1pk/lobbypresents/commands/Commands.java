@@ -133,9 +133,10 @@ public class Commands implements CommandExecutor {
               return false;
             } 
             if (args[2].equalsIgnoreCase("sequence") || args[2].equalsIgnoreCase("custom") || args[2].equalsIgnoreCase("both")) {
-              PresentsUtils.chat(sender, "&7Rewards settype to: &6" + args[2].toLowerCase());
+              PresentsUtils.chat(sender, "&7Rewards settype to: &6" + args[2].toLowerCase()+" &f(NEED RELOAD");
               PresentsUtils.setRewardType(args[2]);
               ((ConfigFile)PresentsUtils.config.get(ConfigType.Presents)).save();
+
             } else {
               PresentsUtils.chat(sender, "&c/lps reward setype sequence, custom or both");
             } 
